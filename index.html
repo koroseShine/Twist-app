@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Twist — Swipe différemment</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header class="topbar">
+  <div class="logo"><img src="assets/logo_icon.svg" alt="Twist logo" class="logo-img"><span class="brand">Twist</span></div>
+  <nav class="nav"><a href="#why" class="nav-link">Pourquoi</a><a href="#vibes" class="nav-link">Vibes Haze</a><a href="#demo" class="nav-link">Démo</a><a href="#beta" class="nav-link btn small">Rejoins la beta</a></nav>
+</header>
+<main>
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <h1>TWIST</h1>
+        <p class="subtitle">Swipe. Match. Partage la vibe.</p>
+        <p class="lead">Twist est l'app pensée par des jeunes, pour des jeunes — trouve ton pote, ton crew ou ton crush qui partage ta vibe.</p>
+        <div class="hero-ctas"><a href="#beta" class="btn">Rejoins la liste d’attente</a><button class="btn outline" onclick="openDemo()">Essayer la démo</button></div>
+        <p class="legal-note">Langage codé, respect des règles — Twist n'encourage aucune activité illégale.</p>
+      </div>
+      <div class="hero-mockup">
+        <div class="phone"><img src="assets/mockup_phone_placeholder.svg" alt="mockup"><div class="phone-overlay"><div class="card"><div class="avatar" style="background-image:url('assets/vector_profile.svg')"></div><div class="card-info"><strong>Just4Taff, 24</strong><div class="tags"><span>💚 Vert Amnesia</span><span>🎧 Rap</span></div><p class="intent">Vibe chill • 3,9 km</p></div></div></div></div>
+      </div>
+    </div>
+  </section>
+  <section id="why" class="section why"><div class="container"><h2>Pourquoi Twist ?</h2><p class="muted">Tu veux des rencontres qui collent à ton flow — pas juste des photos. Twist connecte des personnes autour d'une vibe commune : chill, sorties, énergie ou nightlife.</p><div class="grid"><div class="bloc"><h3>Match par mood</h3><p>Choisis 1–2 "Vibes Haze" pour afficher ton mood et matcher selon l'énergie.</p></div><div class="bloc"><h3>Discret & codé</h3><p>Emojis, tags et courtes intentions : être clair sans être explicite.</p></div><div class="bloc"><h3>Local & instant</h3><p>Radar local (jusqu'à 10 km) pour capter qui est dispo autour de toi.</p></div></div></div></section>
+  <section id="vibes" class="section vibes"><div class="container"><h2>Vibes Haze 🌈</h2><p class="muted">Choisis 1 à 2 vibes qui décrivent ton mood. Elles te connectent aux personnes qui cherchent la même chose.</p><div class="vibes-grid">
+    <div class="vibe card vibe-green" onclick="openVibe('green')"><img src="assets/vector_group.svg" class="vibe-img"><h3>💚 Vert — Amnesia</h3><p>Ambiance chill : séries, musique, vibes posées — cherche des potes avec qui se poser.</p></div>
+    <div class="vibe card vibe-yellow" onclick="openVibe('yellow')"><img src="assets/chrome_neon_bg1.png" class="vibe-img"><h3>💛 Jaune — Lemon Haze</h3><p>Ambiance soleil : organiser des sorties, spots, petits plans en journée.</p></div>
+    <div class="vibe card vibe-red" onclick="openVibe('red')"><img src="assets/vector_chat.svg" class="vibe-img"><h3>❤️ Rouge — Strawberry Haze</h3><p>Ambiance énergique : sessions à deux, recherche d'une connexion plus intime.</p></div>
+    <div class="vibe card vibe-blue" onclick="openVibe('blue')"><img src="assets/chrome_neon_bg2.png" class="vibe-img"><h3>💙 Bleu — Purple Haze</h3><p>Ambiance cosmique : plans teuf, nightlife, oiseaux de la nuit — trouve ton acolyte nocturne.</p></div>
+  </div><div id="vibeModal" class="modal" aria-hidden="true"></div></div></section>
+  <section id="features" class="section features"><div class="container"><h2>Fonctionnalités</h2><ul class="feature-list"><li><strong>Tags codés</strong> — Choisis emojis & mots-clés.</li><li><strong>Intentions</strong> — Chill, sortie, soirée, ou duo.</li><li><strong>Pseudo & discrétion</strong> — Protège ton identité jusqu'à ce que tu sois ready.</li><li><strong>Playlist</strong> — Ajoute ta tracklist pour montrer ta vibe.</li><li><strong>Filtres</strong> — Rayon 10 km, heures de dispo.</li></ul></div></section>
+  <section id="demo" class="section demo"><div class="container"><h2>Démo interactive</h2><p class="muted">Prototype cliquable : essaie le flow création de profil → choix de vibe → swipe → chat (local seulement).</p><div class="demo-wrap"><div class="demo-left"><div class="demo-controls"><button onclick="demoNav('home')" class="small">Accueil</button><button onclick="demoNav('create')" class="small">Créer profil</button><button onclick="demoNav('swipe')" class="small">Swipe</button><button onclick="demoNav('chat')" class="small">Chat</button></div><div id="demo-frame" class="demo-frame"></div></div><div class="demo-right"><p>Astuce : essaie le swipe, choisis une vibe et simule un match. Tout est local — parfait pour montrer le flow.</p></div></div></div></section>
+  <section id="about" class="section about"><div class="container"><h2>À propos</h2><p class="muted">Twist est créé par une équipe jeune, urbaine et proche des codes culturels de sa génération. On veut une app qui facilite les vraies connexions et les bons moments, sans jugement.</p></div></section>
+  <section id="beta" class="section beta"><div class="container"><h2>Rejoins la bêta</h2><p>Sois parmi les premiers — on t'envoie un accès en priorité.</p><form id="betaForm" class="beta-form" onsubmit="submitForm(event)"><input id="email" type="email" placeholder="Ton email" required><select id="city"><option value="">Ta ville (optionnel)</option><option>Paris</option><option>Lyon</option><option>Marseille</option><option>Autre</option></select><select id="vibeSelect"><option value="">Ta vibe préférée</option><option value="green">💚 Vert — Amnesia</option><option value="yellow">💛 Jaune — Lemon Haze</option><option value="red">❤️ Rouge — Strawberry Haze</option><option value="blue">💙 Bleu — Purple Haze</option></select><button class="btn">M'inscrire</button><p class="form-note">On garde tes données privées. Pas de partage.</p></form><div id="msg" class="msg" aria-live="polite"></div></div></section>
+</main>
+<footer id="contact"><div class="container"><p>© 2025 Twist — Urban Vibes. <a href="mailto:contact@twistapp.com">contact@twistapp.com</a></p><p class="muted">Reste légal. Reste safe. Reste toi.</p></div></footer>
+<script src="app.js"></script>
+<script>
+// smooth internal nav
+document.querySelectorAll('.nav-link').forEach(a=>{ a.addEventListener('click', e=>{ e.preventDefault(); const id = a.getAttribute('href').slice(1); document.getElementById(id).scrollIntoView({behavior:'smooth'}); }); });
+</script>
+</body></html>
